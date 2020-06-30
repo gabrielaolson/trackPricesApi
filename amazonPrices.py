@@ -44,7 +44,7 @@ def send_mail():
     server.starttls()
     server.ehlo()
 
-    server.login(keys["email"], keys["email_key"])
+    server.login(keys["sender_email"], keys["email_key"])
 
     subject = 'Price fell down'
     body = 'Check the amazon link https://www.amazon.com.br/iPhone-Apple-Dourado-Tela-C%C3%A2mera/dp/B0762WTVBM/ref=sr_1_1?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=IKO19W66Q6OW&dchild=1&keywords=iphone+8&qid=1593528367&sprefix=iphone%2Caps%2C293&sr=8-1'
@@ -52,8 +52,8 @@ def send_mail():
     msg = f"Subject: {subject}\n\n{body}"
 
     server.sendmail(
-        'gabiolson@gmail.com',
-        'gabriela.olson@icloud.com',
+        keys["sender_email"],
+        keys["recipient email"],
         msg
     )
     print('HEY EMAIL HAS BEEN SENT! ')
